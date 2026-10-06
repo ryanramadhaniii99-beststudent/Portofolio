@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTOFOLIO RYAN</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Orbitron:wght@500;700;900&display=swap"
+          rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        code: ['Fira Code', 'monospace'],
+                        tech: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- =========================
+         NAVBAR FIXED
+    ========================== -->
+    <style>
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+
+        body {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+
+<body class="theme-cyberpunk">
+
+    <!-- =========================
+         ROCKET CURSOR
+    ========================== -->
+    <div id="rocket-cursor">
+        <span class="rocket">🚀</span>
+        <span class="rocket-flame"></span>
+    </div>
+
+    <!-- Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header id="navbar">
+        <div class="navbar-inner">
+
+            <a href="#hero" class="logo">
+                <div class="logo-box">RR</div>
+                <span>RYAN<span>.RAMADHANI</span></span>
+            </a>
+
+            <nav class="desktop-nav">
+                <a href="#about" data-i18n="nav-profile">Profile</a>
+                <a href="#skills" data-i18n="nav-skills">Tech Matrix</a>
+                <a href="#projects" data-i18n="nav-projects">Projects</a>
+                <a href="#game" data-i18n="nav-lab">Cyber Lab</a>
+                <a href="#contact" data-i18n="nav-contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+
+                <button id="audio-toggle" class="nav-button">
+                    <i class="fa-solid fa-volume-xmark" id="audio-icon"></i>
+                </button>
+
+                <!-- LANGUAGE -->
+                <div class="lang-wrapper">
+                    <button id="lang-menu-btn" class="nav-button">
+                        <i class="fa-solid fa-globe"></i>
+                    </button>
+
+                    <div id="lang-menu" class="theme-menu">
+                        <div class="theme-title" data-i18n="lang-title">
+                            SELECT LANG
+                        </div>
+
+                        <button onclick="setLanguage('id')">
+                            🇮🇩 Indonesia
+                        </button>
+
+                        <button onclick="setLanguage('en')">
+                            🇬🇧 English
+                        </button>
+                    </div>
+                </div>
+
+                <!-- THEME -->
+                <div class="theme-wrapper">
+                    <button id="theme-menu-btn" class="nav-button">
+                        <i class="fa-solid fa-palette"></i>
+                    </button>
+
+                    <div id="theme-menu" class="theme-menu">
+                        <div class="theme-title" data-i18n="theme-title">
+                            SELECT MODE
+                        </div>
+
+                        <button onclick="setTheme('cyberpunk')">
+                            🟣 Cyberpunk Neon
+                        </button>
+
+                        <button onclick="setTheme('neon-matrix')">
+                            🟢 Matrix Green
+                        </button>
+
+                        <button onclick="setTheme('dark')">
+                            🔵 Deep Dark
+                        </button>
+
+                        <button onclick="setTheme('light')">
+                            ⚪ Futuristic Light
+                        </button>
+                    </div>
+                </div>
+
+                <button id="mobile-menu-btn" class="nav-button mobile-button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+        </div>
+
+        <div id="mobile-menu">
+            <a href="#about" data-i18n="nav-profile">Profile</a>
+            <a href="#skills" data-i18n="nav-skills">Tech Matrix</a>
+            <a href="#projects" data-i18n="nav-projects">Projects</a>
+            <a href="#game" data-i18n="nav-lab">Cyber Lab</a>
+            <a href="#contact" data-i18n="nav-contact">Contact</a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- =========================
+             HERO
+        ========================== -->
+        <section id="hero">
+
+            <div class="hero-grid">
+
+                <div class="profile-column">
+
+                    <div class="glass-card tilt-card profile-card">
+
+                        <div class="profile-glow"></div>
+
+                        <div class="avatar">
+                            <img
+                                src="https://cdn.phototourl.com/member/2026-10-03-963eafd3-2ec9-4270-8ebf-551abd8731ed.jpg"
+                                alt="Profile Avatar">
+                        </div>
+
+                        <h2>M RYAN RAMADHANI</h2>
+
+                        <p class="username">
+                            @RYANCREATIF13
+                        </p>
+
+                        <div class="socials">
+                            <a href="#"><i class="fa-brands fa-github"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-dribbble"></i></a>
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+
+                        <div class="stats">
+
+                            <div>
+                                <strong>16</strong>
+                                <span data-i18n="stat-exp">
+                                    YEARS OLD.
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong>5</strong>
+                                <span data-i18n="stat-projects">
+                                    PROJECTS
+                                </span>
+                            </div>
+
+                            <div>
+                                <strong>99.8%</strong>
+                                <span data-i18n="stat-satisfaction">
+                                    SATISFACTION
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-content">
+
+                    <div class="system-label">
+                        <i class="fa-solid fa-terminal"></i>
+                        PORTOFOLIO RYAN EXEE GOOD
+                    </div>
+
+                    <h1>
+                        <span data-i18n="hero-title-1">
+                            CRAFTING
+                        </span>
+
+                        <span data-i18n="hero-title-2">
+                            FUTURE
+                        </span>
+
+                        <span data-i18n="hero-title-3">
+                            DIGITAL EXPERIENCES
+                        </span>
+                    </h1>
+
+                    <div class="typing-box">
+
+                        <div class="typing-header">
+
+                            <span>
+                                <i class="fa-solid fa-code"></i>
+                                ROLE_MODULE
+                            </span>
+
+                            <div>
+                                <button onclick="setTypingSpeed(100)">
+                                    Slow
+                                </button>
+
+                                <button onclick="setTypingSpeed(50)">
+                                    Normal
+                                </button>
+
+                                <button onclick="setTypingSpeed(20)">
+                                    Fast
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div class="typing-text">
+                            <span id="typing-text"></span>
+                            <span class="typing-cursor">|</span>
+                        </div>
+
+                    </div>
+
+                    <p class="hero-description" data-i18n="hero-desc">
+                        My name is Muhammad Ryan Ramadhani. I am a disciplined,
+                        honest, and responsible individual with strong character
+                        and a solid work ethic.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#contact" class="primary-button">
+                            <i class="fa-solid fa-bolt"></i>
+
+                            <span data-i18n="btn-start-project">
+                                START A PROJECT
+                            </span>
+                        </a>
+
+                        <button
+                            onclick="downloadResume()"
+                            class="secondary-button">
+
+                            <i class="fa-solid fa-file-arrow-down"></i>
+
+                            <span data-i18n="btn-download-cv">
+                                DOWNLOAD CV
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+        <section id="skills" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    // MATRIX ARCHITECTURE
+                </div>
+
+                <h2 data-i18n="skills-title">
+                    SKILS YANG KU MILIKI
+                </h2>
+
+                <p data-i18n="skills-desc">
+                    Interactive skill and the best of student
+                </p>
+
+            </div>
+
+            <div class="skills-grid">
+
+                <!-- FRONTEND -->
+                <div class="glass-card tilt-card skill-card">
+
+                    <div class="skill-icon cyan">
+                        <i class="fa-brands fa-react"></i>
+                    </div>
+
+                    <h3>
+                        Frontend Development
+                    </h3>
+
+                    <p data-i18n="skill-frontend-desc">
+                        Mengembangkan website yang responsif, modern, dan
+                        interaktif menggunakan HTML, CSS, JavaScript, React.js,
+                        serta Tailwind CSS.
+                    </p>
+
+                    <div class="skill-percent">
+                        <span data-i18n="mastery-text">
+                            Mastery
+                        </span>
+
+                        <strong>
+                            95%
+                        </strong>
+                    </div>
+
+                    <div class="progress">
+                        <div style="width:95%"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- AI -->
+                <div class="glass-card tilt-card skill-card">
+
+                    <div class="skill-icon pink">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+
+                    <h3>
+                        Artificial Intelegence
+                    </h3>
+
+                    <p data-i18n="skill-ai-desc">
+                        Mampu memahami dan memanfaatkan teknologi AI untuk
+                        meningkatkan produktivitas, otomatisasi, dan
+                        pemecahan masalah.
+                    </p>
+
+                    <div class="skill-percent">
+
+                        <span data-i18n="mastery-text">
+                            Mastery
+                        </span>
+
+                        <strong>
+                            92%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress pink-progress">
+                        <div style="width:92%"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- SOFTWARE -->
+                <div class="glass-card tilt-card skill-card">
+
+                    <div class="skill-icon purple">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+
+                    <h3 data-i18n="skill-software-title">
+                        softwere & digital thecnology
+                    </h3>
+
+                    <p data-i18n="skill-software-desc">
+                        Memahami penggunaan teknologi digital, aplikasi,
+                        serta pengembangan solusi berbasis teknologi
+                    </p>
+
+                    <div class="skill-percent">
+
+                        <span data-i18n="mastery-text">
+                            Mastery
+                        </span>
+
+                        <strong>
+                            88%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress purple-progress">
+                        <div style="width:88%"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- INVESTOR -->
+                <div class="glass-card tilt-card skill-card">
+
+                    <div class="skill-icon green">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+
+                    <h3>
+                        Technology Investor
+                    </h3>
+
+                    <p data-i18n="skill-investor-desc">
+                        Mampu menganalisis dan berinvestasi pada perusahaan
+                        atau proyek teknologi yang memiliki potensi
+                        pertumbuhan dan inovasi.
+                    </p>
+
+                    <div class="skill-percent">
+
+                        <span data-i18n="mastery-text">
+                            Mastery
+                        </span>
+
+                        <strong>
+                            85%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress green-progress">
+                        <div style="width:85%"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+        <section id="projects" class="section">
+
+            <div class="project-heading">
+
+                <div>
+
+                    <div class="section-label">
+                        // CREATIVE PORTFOLIO
+                    </div>
+
+                    <h2>
+                        PROJECT STS
+                    </h2>
+
+                </div>
+
+
+                <div class="filters">
+
+                    <button
+                        onclick="filterProjects('all')"
+                        data-filter="all"
+                        data-i18n="filter-all">
+
+                        ALL
+
+                    </button>
+
+
+                    <button
+                        onclick="filterProjects('PT')"
+                        data-filter="PT">
+
+                        project PT
+
+                    </button>
+
+
+                    <button
+                        onclick="filterProjects('TJK')"
+                        data-filter="TJK">
+
+                        project TJK
+
+                    </button>
+
+
+                    <button
+                        onclick="filterProjects('KKD')"
+                        data-filter="KKD">
+
+                        project KKD
+
+                    </button>
+
+
+                    <button
+                        onclick="filterProjects('PPLG')"
+                        data-filter="PPLG">
+
+                        project PPLG
+
+                    </button>
+
+
+                    <button
+                        onclick="filterProjects('PBO')"
+                        data-filter="PBO">
+
+                        project PBO
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="projects-grid" class="projects-grid">
+
+
+                <!-- =========================
+                     PROJECT 1 - PT
+                ========================== -->
+                <div
+                    class="glass-card tilt-card project-card"
+                    data-category="PT">
+
+                    <div class="project-image">
+
+                        <img
+                            src="https://cdn.phototourl.com/member/2026-10-06-1124616d-b682-44c5-8730-5950a5a796e4.jpg"
+                            alt="Project Kalkulator">
+
+                        <span>
+                            PT
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h3>
+                            PROJECT KALKULATOR
+                        </h3>
+
+                        <p data-i18n="proj-calc-desc">
+                            project kalkulator adalah kita pertama prototyping
+                            di flowgharithm untuk membuaat charnya dahuli
+                            yang kedua kita implementasika ke google collab
+                            (python) yang ketiga kita trobleshooting langsung
+                            kita uji project yang kita buat tersebutt
+                        </p>
+
+
+                        <button
+                            onclick="openModal(
+                                'PROJECT KALKULATOR',
+                                'project PT tersebut mengajarkan kita untuk membuat sesuatu itu harus terstruktur daan systematis.',
+                                'https://cdn.phototourl.com/member/2026-10-06-1124616d-b682-44c5-8730-5950a5a796e4.jpg'
+                            )">
+
+                            <span data-i18n="btn-view-project">
+                                VIEW PROJECT
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     PROJECT 2 - TJK
+                ========================== -->
+                <div
+                    class="glass-card tilt-card project-card"
+                    data-category="TJK">
+
+                    <div class="project-image">
+
+                        <img
+                            src="https://cdn.phototourl.com/member/2026-10-06-a46925f5-907a-4ff2-9911-e2f9cd08212e.jpg"
+                            alt="Merakit CPU">
+
+                        <span>
+                            TJK
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h3>
+                            MERAKIT CPU
+                        </h3>
+
+                        <p data-i18n="proj-cpu-desc">
+                            yaitu kita memahami komponen komponen cpu dan
+                            merakit cpu agar monitornya bisa nyala
+                        </p>
+
+
+                        <button
+                            onclick="openModal(
+                                'MERAKIT CPU',
+                                'project merakit cpu tidak cukup untuk praktik saja namun harus jadikan ilmu yang bermanfaat kelak di kemudian hari.',
+                                'https://cdn.phototourl.com/member/2026-10-06-a46925f5-907a-4ff2-9911-e2f9cd08212e.jpg'
+                            )">
+
+                            <span data-i18n="btn-view-project">
+                                VIEW PROJECT
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     PROJECT 3 - KKD
+                ========================== -->
+                <div
+                    class="glass-card tilt-card project-card"
+                    data-category="KKD">
+
+                    <div class="project-image">
+
+                        <img
+                            src="https://cdn.phototourl.com/member/2026-10-06-386a0ee2-5d0f-4003-a8a9-5a8115acaf3c.jpg"
+                            alt="Mendisain Logo">
+
+                        <span>
+                            KKD
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h3>
+                            MENDISAIN LOGO
+                        </h3>
+
+                        <p data-i18n="proj-logo-desc">
+                            kami di suruh menyiapkaan 4 adboard adboard
+                            pertama kami di suruh membuuat logo adboard kedua
+                            kita di suruh membuat mind mapping 5W 1H adboard
+                            ketiga kami membuat filosofi logo yang kami buat
+                            adboard keempaat atau terakkhir kami mrmbuat riset
+                            logo tersebut atau apa arti bentuknya dan waarnanya
+                        </p>
+
+
+                        <button
+                            onclick="openModal(
+                                'MENDISAIN LOGO',
+                                'bukan hanya mendesain logo tapi juga tau apa arti dan makna membuat project tersebut bukan hanya di sekolah tetapi juga di kehidupan.',
+                                'https://cdn.phototourl.com/member/2026-10-06-386a0ee2-5d0f-4003-a8a9-5a8115acaf3c.jpg'
+                            )">
+
+                            <span data-i18n="btn-view-project">
+                                VIEW PROJECT
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     PROJECT 4 - PPLG
+                ========================== -->
+                <div
+                    class="glass-card tilt-card project-card"
+                    data-category="PBO">
+
+                    <div class="project-image">
+
+                        <img
+                            src="https://cdn.phototourl.com/member/2026-10-06-f33d23f9-322b-48ec-8bbc-97a0f3a7dd3e.jpg"
+                            alt="Website Portfolio">
+
+                        <span>
+                            PBO
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h3>
+                            MEMBUAT MINI PROJECT KASIR
+                        </h3>
+
+                        <p>
+                            mini project kasir ini kami buat untuk mengatasi kasir yang munculnya sebuah human eror yang terus meningkat
+                        </p>
+
+
+                        <button
+                            onclick="openModal(
+                                'MEMBUAT MINI PROJECT KASIR',
+                                'Project ini memberikan pengalaman dalam memahami konsep PBO seperti class, object, method, dan pengelolaan data secara terstruktur.',
+                                'https://cdn.phototourl.com/member/2026-10-06-f33d23f9-322b-48ec-8bbc-97a0f3a7dd3e.jpg'
+                            )">
+
+                            <span data-i18n="btn-view-project">
+                                VIEW PROJECT
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     PROJECT 5 - PBO
+                ========================== -->
+                <div
+                    class="glass-card tilt-card project-card"
+                    data-category="PPLG">
+
+                    <div class="project-image">
+
+                        <img
+                            src="https://cdn.phototourl.com/member/2026-10-06-1cacb3e0-30a2-487c-8218-bedaf479df6a.jpg"
+                            alt="Aplikasi Data Siswa">
+
+                        <span>
+                            PPLG
+                        </span>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <h3>
+                            MEMBUAT WEBSITE PORTOFOLIO
+                        </h3>
+
+                        <p>
+                            Project ini berfokus pada pembuatan website
+                            portofolio menggunakan HTML, CSS, dan JavaScript
+                            dengan tampilan modern, interaktif, responsif,
+                            serta memiliki berbagai fitur digital.
+                        </p>
+
+
+                        <button
+                            onclick="openModal(
+                                'MEMBUAT WEBSITE PORTOFOLIO',
+                                'Project ini memberikan pengalaman cara membuat website menggunakan pemograman html , css , dan js.',
+                                'https://cdn.phototourl.com/member/2026-10-06-1cacb3e0-30a2-487c-8218-bedaf479df6a.jpg'
+                            )">
+
+                            <span data-i18n="btn-view-project">
+                                VIEW PROJECT
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CYBER LAB
+        ========================== -->
+        <section
+            id="game"
+            class="glass-card cyber-lab">
+
+            <div class="lab-header">
+
+                <div>
+
+                    <div class="section-label">
+                        // INTERACTIVE LAB
+                    </div>
+
+                    <h2>
+                        CYBER REFLEX TESTER
+                    </h2>
+
+                    <p data-i18n="lab-desc">
+                        Click the glowing core as fast as possible.
+                    </p>
+
+                </div>
+
+
+                <div class="game-info">
+
+                    <div>
+                        <small data-i18n="score-text">
+                            SCORE
+                        </small>
+
+                        <strong id="game-score">
+                            0
+                        </strong>
+                    </div>
+
+
+                    <div>
+                        <small data-i18n="time-text">
+                            TIME
+                        </small>
+
+                        <strong id="game-timer">
+                            15s
+                        </strong>
+                    </div>
+
+
+                    <button
+                        id="start-game-btn"
+                        onclick="startGame()"
+                        data-i18n="btn-start-test">
+
+                        START TEST
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="game-arena">
+
+                <span
+                    id="game-instructions"
+                    data-i18n="game-instructions">
+
+                    PRESS START TEST TO INITIALIZE
+
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+        <section id="contact" class="contact-grid">
+
+            <div class="glass-card contact-card">
+
+                <div class="section-label">
+                    // GET IN TOUCH
+                </div>
+
+                <h2 data-i18n="contact-title">
+                    TRANSMIT A MESSAGE
+                </h2>
+
+
+                <form
+                    id="contact-form"
+                    onsubmit="handleContactSubmit(event)">
+
+                    <input
+                        type="text"
+                        required
+                        placeholder="YOUR NAME">
+
+                    <input
+                        type="email"
+                        required
+                        placeholder="EMAIL ADDRESS">
+
+
+                    <select>
+
+                        <option>
+                            Fronted Development
+                        </option>
+
+                        <option>
+                            Artificial Intelegence
+                        </option>
+
+                        <option>
+                            Softwere & Technologi Digital
+                        </option>
+
+                        <option>
+                            Technologi Investor
+                        </option>
+
+                    </select>
+
+
+                    <textarea
+                        rows="5"
+                        required
+                        placeholder="Describe your project...">
+                    </textarea>
+
+
+                    <button type="submit">
+
+                        <span data-i18n="btn-send">
+                            SEND TRANSMISSION
+                        </span>
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- GUESTBOOK -->
+            <div class="glass-card guestbook">
+
+                <div class="guestbook-heading">
+
+                    <div>
+
+                        <div class="section-label">
+                            // PUBLIC LOGS
+                        </div>
+
+                        <h2>
+                            CYBER GUESTBOOK
+                        </h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-comments"></i>
+
+                </div>
+
+
+                <div id="guestbook-feed">
+
+                    <div class="guest-entry">
+
+                        <span>
+                            @sRyan_exe_good
+                        </span>
+
+                        <small>
+                            2 mins ago
+                        </small>
+
+                        <p>
+                            The neon cyberpunk theme looks insane! 🚀
+                        </p>
+
+                    </div>
+
+
+                    <div class="guest-entry">
+
+                        <span>
+                            @ryan_good_exe
+                        </span>
+
+                        <small>
+                            1 hour ago
+                        </small>
+
+                        <p>
+                            Awesome reflex test mini-game!
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form
+                    onsubmit="addGuestbookEntry(event)">
+
+                    <input
+                        id="gb-user"
+                        required
+                        placeholder="@cyber_user">
+
+
+                    <div class="guest-input">
+
+                        <input
+                            id="gb-msg"
+                            required
+                            placeholder="Leave a note...">
+
+
+                        <button type="submit">
+                            POST
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         PROJECT MODAL
+    ========================== -->
+    <div id="project-modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h3 id="modal-title">
+                    Project
+                </h3>
+
+
+                <button onclick="closeModal()">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+
+            <img
+                id="modal-img"
+                src=""
+                alt="Project">
+
+
+            <p id="modal-desc"></p>
+
+
+            <button
+                onclick="closeModal()"
+                class="modal-close">
+
+                CLOSE
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TOAST
+    ========================== -->
+    <div id="toast-box">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span id="toast-message"></span>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
